@@ -17,7 +17,7 @@ pygobject==3.24.1
 python-dateutil==2.7.5
 pytz==2018.7
 pyxdg==0.25
-PyYAML==3.12
+PyYAML==5.1
 scour==0.32
 SecretStorage==2.3.1
 six==1.11.0
