@@ -25,7 +25,7 @@ SECRET_KEY = '4%n&f_3bbt!bn4c4cqimd5q7jkbb$8ku$h+xmkxc)ekjn21z=k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fuzzyword-search.herokuapp.com']
 
 
 # Application definition
@@ -119,3 +119,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
