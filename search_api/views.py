@@ -6,6 +6,9 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Create your views here.
+def check(request):
+	return HttpResponse("Hi Django :: ")
+
 def search(request):
 	word = request.GET.get('word')
 	import pandas as pd
