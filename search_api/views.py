@@ -11,7 +11,7 @@ def index(request):
 	return render(request, 'home.html')
 
 def search(request):
-	word = request.GET.get('word')
+	word = request.GET.get('word').lower()
 
 	path_to_file = os.path.join(BASE_DIR, 'dataset')
 
