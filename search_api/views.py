@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Create your views here.
 def index(request):
-	return render(request, 'search.html')
+	return render(request, 'home.html')
 
 def search(request):
 	word = request.GET.get('word')
@@ -36,8 +36,7 @@ def search(request):
 	
 	print ( result )
 
-	# return HttpResponse(result.to_json(orient='records'))
-	return render(request, 'search.html')
+	return HttpResponse(result.to_json(orient='records'))
 
 def starts_with(df, word):
 	try:
