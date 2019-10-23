@@ -1,7 +1,7 @@
 <!-- templates/home.html -->
 {% extends 'base.html' %}
 
-{% block title %}Search{% endblock %}
+{% block title %}Fuzzy Search{% endblock %}
 
 {% block content %}
 <section id="cover">
@@ -9,16 +9,16 @@
         <div id="container" class="container">
             <div class="row text-white">
                 <div class="col-sm-6 offset-sm-3 text-center">
-                    <h1 class="display-4" style="color: #009436">Fuzzy Search</h1>
+                    <h1 class="display-4" style="color: #008496">Fuzzy Search</h1>
                     <div class="info-form">
                         
                         <form action="{% url 'search' %}" method="GET" class="form-inlin justify-content-center">
                             <div class="form-group">
                                 <label class="sr-only">Name</label>
-                                <input type="text" name='word' class="form-control" placeholder="Enter Word">
+                                <input type="text" name='word' class="form-control" placeholder="Enter a word" required>
                             </div>
                            
-                            <button type="submit" class="btn btn-success">Search</button>
+                            <button type="submit" class="btn btn-info">Search</button>
                         </form>
                     
                     </div>
