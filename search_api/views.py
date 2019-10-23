@@ -1,22 +1,47 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import pandas as pd
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Create your views here.
-def check(request):
-	return HttpResponse("Hi Django :: ")
+def index(request):
+	return render(request, 'search.html')
 
 def search(request):
 	word = request.GET.get('word')
-	import pandas as pd
 
 	path_to_file = os.path.join(BASE_DIR, 'dataset')
 
-	user_info = pd.read_csv(path_to_file+'/word_search.tsv',delimiter='\t',encoding='utf-8')
-	print(list(user_info.columns.values)) #file header
-	print(user_info.head(35)) #last N rows
+	df = pd.read_csv(path_to_file+'/word_search.tsv', sep='\t', header=None, engine='python', 
+		na_filter=False)
 
-	return HttpResponse("Implement here :: "+word)
+	df.rename(columns = {0: "word", 1:"usage"}, inplace = True)
+	df['word_length'] = df['word'].str.len()
+
+	# list of all searched words
+	fuzzy_words = df[df['word'].str.contains(word)].head(25)
+
+	# list of words start with searched word
+	start_with_word = fuzzy_words[fuzzy_words['word'].str.startswith(word)]
+	start_with_word = start_with_word.sort_values('word_length')
+
+	# list of words contains the searched word
+	contain_words = fuzzy_words[~(fuzzy_words['word'].str.startswith(word))]
+	contain_words = contain_words.sort_values('word_length')
+	
+	result = start_with_word.append(contain_words)
+	
+	print ( result )
+
+	# return HttpResponse(result.to_json(orient='records'))
+	return render(request, 'search.html')
+
+def starts_with(df, word):
+	try:
+		result = df[df['word'].str.startswith(word)]
+		return result.to_json()
+	except Exception as e:
+		raise e
