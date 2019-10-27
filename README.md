@@ -15,4 +15,4 @@ Technology Stack
 
 Deployment
 =================
-[fuzzyword-search.herokuapp.com](https://www.fuzzyword-search.herokuapp.com "Fuzzy search")
+[fuzzyword-search.herokuapp.com](https://fuzzyword-search.herokuapp.com "Fuzzy search")
