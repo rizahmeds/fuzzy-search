@@ -1,5 +1,5 @@
 Django==2.2
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 gunicorn==19.9.0
 numpy==1.17.3
 pandas==0.25.2
