@@ -8,10 +8,10 @@ Summary
 Technology Stack
 =================
 > List the technologies and libraries used in the project.
-* Django 2.2
-* numpy 1.17.3
-* pandas 0.25.2
-* whitenoise 4.1.4
+* Django 4.2.20
+* numpy 2.2.4
+* pandas 2.2.3
+* whitenoise 6.9.0
 
 Deployment
 =================
